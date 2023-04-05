@@ -1,0 +1,5 @@
+<p>parent works!</p>
+<div *ngFor="let product of messageFromChild">
+  <p>{{product.Name}}</p>
+</div>
+<app-child (childEvent)="messageFromChild=$event"></app-child>

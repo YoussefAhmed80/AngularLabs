@@ -1,0 +1,49 @@
+<h1>{{storeName}}</h1>
+<img [src]="storeLogo" style="width: 30px; height: 30px;" />
+<select >
+  <option *ngFor="let category of categoryList">{{category.Name}}</option>
+</select>
+
+<div *ngIf="isPurchased; then thenBlock; else elseBlock">
+
+</div>
+
+<ng-template #thenBlock>
+  <h1>Thanks for purchasing from our Store {{clientName}}</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+
+  <table #table *ngFor="let Product of productList">
+    <tr>
+      <td>
+        {{Product.Name}}
+      </td>
+      <td>
+        {{Product.Quantity}}
+      </td>
+      <td>
+        {{Product.Price}}
+      </td>
+      <td>
+        <img src={{Product.Img}} style="width:20px;height:20px;">
+      </td>
+    </tr>
+  </table>
+
+</ng-template>
+<!-- Don't Forget This-->
+<br><br>
+<input [(ngModel)]="clientName"/>
+{{clientName}}
+
+<br>
+<br>
+<button (click)="Toggle()">Buy</button>
+<br>
+<br>
+{{storeName | uppercase}}
+<br>
+<br>
+<p>Discount: {{ Discount | square }}</p>
+

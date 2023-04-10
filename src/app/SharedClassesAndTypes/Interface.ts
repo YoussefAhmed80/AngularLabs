@@ -6,8 +6,19 @@ export interface IProduct {
   Img : string;
 }
 
-
 export interface ICategory{
   Id: number;
   Name: string;
+}
+
+export interface IUser{
+  name : string;
+  username : string;
+  email : string;
+}
+
+export interface IPost{
+  id : number;
+  title : string;
+  body : string;
 }

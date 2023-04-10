@@ -47,3 +47,6 @@
 <br>
 <p>Discount: {{ Discount | square }}</p>
 
+<button (click)="showProductWithDiscount(Discount)">Product With Discount</button>
+<button (click)="showProductWithOutDiscount(Discount)">Product With Out Discount</button>
+<router-outlet></router-outlet>

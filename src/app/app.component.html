@@ -1,5 +1,40 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <h1>Welcom Beek Ya 3azezy</h1>
 <app-product></app-product>
+<button (click)="callRenderValues()">Get Products</button>
+<div *ngIf="flag;">
+  <table #table *ngFor="let Product of products">
+    <tr>
+      <td>
+        {{Product.Name}}
+      </td>
+      <td>
+        {{Product.Quantity}}
+      </td>
+      <td>
+        {{Product.Price}}
+      </td>
+      <td>
+        <img src={{Product.Img}} style="width:20px;height:20px;">
+      </td>
+    </tr>
+  </table>
+</div>
 <app-parent></app-parent>
+<app-footer></app-footer> -->
+<app-header></app-header>
+<nav>
+  <a routerLink="/product" routerLinkActive="active">product</a>
+  &nbsp;
+  <a routerLink="/post" routerLinkActive="active">post</a>
+  &nbsp;
+  <a routerLink="/user" routerLinkActive="active">user</a>
+  &nbsp;
+  <a routerLink="/home" routerLinkActive="active">home</a>
+  &nbsp;
+  <a routerLink="/auth/register" routerLinkActive="active">Register</a>
+  &nbsp;
+  <a routerLink="/auth/login" routerLinkActive="active">Login</a>
+</nav>
+<router-outlet></router-outlet>
 <app-footer></app-footer>

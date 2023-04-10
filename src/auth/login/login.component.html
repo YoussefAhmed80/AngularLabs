@@ -1,0 +1,38 @@
+<div class="container">
+  <form  #userForm="ngForm" novalidate (ngSubmit)="submitData()">
+      {{userForm.value |json}}
+      <br>
+      <!-- {{userModel|json}} -->
+      <div class="form-group">
+          <label>User Name</label>
+          <input type="text" required
+          [class.is-invalid]="name.invalid&&name.touched"
+          [(ngModel)]="userModel.name"
+          pattern="/^[a-zA-Z]+$/"
+          name="txtName" #name="ngModel"  class="form-control">
+
+          <div *ngIf="name.errors&&name.touched">
+
+            <small class="text-danger" *ngIf="name.errors['required']">the user name is
+               required</small>
+            <small class="text-danger" *ngIf="name.errors['pattern']">
+              the user name must also contains only capital and small characters.
+            </small>
+          </div>
+        </div>
+        <div class="forrm-group">
+          <label>Password</label>
+          <input type="password" required name="txtPassword"
+          [class.is-invalid]="pass.invalid&&pass.touched"
+          pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+~`,.\-=])[A-Za-z\d!@#$%^&*()_+~`,.\-=]{8,}$/"
+          [(ngModel)]="userModel.password" #pass="ngModel"
+          class="form-control">
+
+          <div *ngIf="pass.errors&&pass.touched">
+              <small class="text-danger" *ngIf="pass.errors['required']">password is required</small>
+              <small class="text-danger" *ngIf="pass.errors['pattern']">Password must contain one small letter at-least and one capital letter at least and one special character at least and it length more than or equal 8 characters</small>
+          </div>
+      </div>
+      <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" [class.bg-danger]="userForm.form.invalid" value="login">
+    </form>
+  </div>
